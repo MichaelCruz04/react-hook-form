@@ -2,9 +2,9 @@ import { useForm } from "react-hook-form";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { TForm } from "./types";
 import { schema } from "./validation";
 
+import * as t from './types'
 import './Form.css'
 
 const Form = (): JSX.Element => {
@@ -12,12 +12,12 @@ const Form = (): JSX.Element => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<TForm>({
+  } = useForm<t.TForm>({
     mode: 'onBlur',
     resolver: yupResolver(schema),
   });
 
-  const addPost = (data: any) => {
+  const addPost = (data: t.TForm) => {
     console.log(data);
   };
 
